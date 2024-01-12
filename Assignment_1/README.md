@@ -10,7 +10,7 @@ Open the folder **Assignment_1**, then run the following command
 ```shell
 python main.py
 ```
-
+The output will be a csv file **server_test_cases.csv**
 # Design for Testing Process
 
 This plan outlines a comprehensive approach to testing the server's configuration feature.
