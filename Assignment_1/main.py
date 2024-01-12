@@ -1,4 +1,5 @@
 import csv
+import re
 
 
 class TestCasesGenerator:
@@ -11,6 +12,9 @@ class TestCasesGenerator:
         """
         if not options or not options[0]:
             raise ValueError("Options list cannot be empty.")
+        if any(re.search(r"[!@#$%^&*(),.?\":{}|<>]", option) for option in options):
+            raise ValueError("Options should not contain special characters.")
+
         self.options = options
         self.test_cases = []
         self.combinations = []
