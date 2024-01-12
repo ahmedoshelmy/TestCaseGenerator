@@ -30,4 +30,5 @@ make
 
 - Each Module number depends on the previous module number only, not taking into consideration if the previous module
   was a valid number or not
-- If a module is not valid, it continues does not stop 
+- If a module is not valid, it continues does not stop
+- If a module number is not in range[1,N], then testing does not start 

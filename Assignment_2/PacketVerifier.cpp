@@ -13,13 +13,15 @@ bool PacketVerifier::getTestCaseResult(int prevModule, int currentModule, int N)
 }
 
 void PacketVerifier::run(int N, std::vector<int> &packets) {
+    for (int i = 0; i < packets.size(); ++i) {
+        if (packets[i] > N || packets[i] < 1) {
+            std::cerr << "Invalid Input, all modules should be from 1 to N\n";
+            return;
+        }
+    }
     std::vector<bool> result;
     if (packets.size()) {
-        if (packets[0] > N || packets[0] < 1) {
-            result.emplace_back(false);
-        } else {
-            result.emplace_back(true);
-        }
+        result.emplace_back(true);
     }
     for (size_t i = 1; i < packets.size(); ++i) {
         int currentModule = packets[i];
@@ -47,7 +49,7 @@ void PacketVerifier::generateCSV(int N, std::vector<int> packets, std::vector<bo
     data.emplace_back(columns);
 
 
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < packets.size(); ++i) {
         std::vector<std::string> row;
         row.emplace_back(std::to_string(i + 1));
         row.emplace_back(std::to_string(packets[i]));
