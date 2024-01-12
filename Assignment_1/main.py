@@ -10,9 +10,9 @@ class TestCasesGenerator:
         Parameters:
         - options: List of options for test cases.
         """
-        if len(set(options[0])) != len(options[0]):
+        if len(set(options)) != len(options):
             raise ValueError("Options should have unique values.")
-        if not options or not options[0]:
+        if not options or len(options) < 1:
             raise ValueError("Options list cannot be empty.")
         if any(re.search(r"[!@#$%^&*(),.?\":{}|<>]", option) for option in options):
             raise ValueError("Options should not contain special characters.")
